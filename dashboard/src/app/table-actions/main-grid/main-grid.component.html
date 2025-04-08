@@ -1,0 +1,74 @@
+<div class="user-table" *ngIf="columns.length && userRows.length">
+  <div class="team-member">
+    <h1>Team Members</h1>
+    <span class="team-helight">{{ userRows.length + " " + "Users" }} </span>
+  </div>
+  <table>
+    <thead>
+      <tr class="column-name">
+        <th *ngFor="let item of columns">
+          {{ item?.column_name }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of paginatedUsers">
+        <td>
+          <div class="user-avatar">
+            <img src="https://i.pravatar.cc/40?img=2" alt="User" />
+            {{ user.name[0] }}
+          </div>
+        </td>
+        <td
+        class="status"
+        [ngStyle]="{ 'background-color': user.status === 'Customer' ? '#b9fac1' : '#dbdbdb' }">
+        {{ user.status }}
+      </td>
+
+
+            <td class="roles">{{ user.role }}</td>
+        <td>
+          <div class="progress-row">
+            <div class="progress-container">
+              <div
+                class="progress-bar"
+                [style.width.%]="user.license_used"
+              ></div>
+            </div>
+            <div class="progress-text">{{ user.license_used }}%</div>
+          </div>
+        </td>
+        <td>
+          <span
+            *ngFor="let team of user.teams"
+            class="tag"
+            [ngStyle]="{
+              color: team.text_color,
+              'background-color': team.background_color
+            }"
+          >
+            {{ team.value }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <div class="paginiation-button">
+      <button
+        *ngFor="let page of totalPagesArray"
+        (click)="setPage(page)"
+        [class.active]="page === currentPage"
+      >
+        {{ page }}
+      </button>
+    </div>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>
