@@ -2,11 +2,70 @@
   display: flex;
   height: 100vh;
   width: 100vw;
+  background-color: #ffffff;
 }
 
-app-chart-details {
-  flex-grow: 1;
-  padding: 20px;
+app-navigation-bar {
+  width: 80px;
   background-color: #ffffff;
-  overflow-y: auto;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.page-title h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-wrapper {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  font-size: 16px;
+}
+
+.custom-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.custom-btn i {
+  font-size: 14px;
 }

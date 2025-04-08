@@ -1,5 +1,28 @@
 <div class="layout-container">
   <app-navigation-bar></app-navigation-bar>
-  <app-chart-details></app-chart-details>
-  <router-outlet></router-outlet>
+  <div class="main-content">
+    <div class="top-actions">
+      <div class="page-title">
+        <h1>Welcome back, Olivia</h1>
+      </div>
+
+      <div class="action-buttons">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <button class="custom-btn">
+          <i class="fas fa-sliders-h"></i>
+          Customize
+        </button>
+
+        <button class="custom-btn">
+          <i class="fas fa-arrow-up-from-bracket"></i>
+          Export
+        </button>
+      </div>
+    </div>
+    <app-chart-details></app-chart-details>
+    <router-outlet></router-outlet>
+  </div>
 </div>
