@@ -101,7 +101,7 @@ export class ChartDetailsComponent implements OnInit {
         width: 20,
       },
       color: {
-        pattern: ['#60B044', '#F6C600', '#F97600', '#FF0000'],
+        pattern: ['#60B044', '#F6C600', '#A78BFA', '#A78BFA'],
         threshold: {
           values: [30, 60, 90, 100],
         },
