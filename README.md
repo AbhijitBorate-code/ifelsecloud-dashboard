@@ -82,4 +82,3 @@ ngAfterViewInit() {
 
 ---
 
-Let me know if you'd like this tailored more for a specific section of your code or styled for internal Confluence, Notion, or other docs!
