@@ -1,1 +1,34 @@
-<p>edit-table works!</p>
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Edit User</h2>
+    <form [formGroup]="editForm" (ngSubmit)="submitEdit()">
+      <label>First Name</label>
+      <input type="text" formControlName="first_name" />
+      <div *ngIf="editForm.get('first_name')?.invalid && editForm.get('first_name')?.touched" class="error">
+        First name is required
+      </div>
+
+      <label>Last Name</label>
+      <input type="text" formControlName="last_name" />
+      <div *ngIf="editForm.get('last_name')?.invalid && editForm.get('last_name')?.touched" class="error">
+        Last name is required
+      </div>
+
+      <label>Role</label>
+      <input type="role" formControlName="role" />
+      <div *ngIf="editForm.get('role')?.invalid && editForm.get('role')?.touched" class="error">
+        Enter a valid email
+      </div>
+      <label>License Used</label>
+      <input type="license_used" formControlName="license_used" />
+      <div *ngIf="editForm.get('license_used')?.invalid && editForm.get('license_used')?.touched" class="error">
+        Enter a valid email
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" (click)="closeEditModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+

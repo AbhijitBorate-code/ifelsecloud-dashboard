@@ -2,11 +2,12 @@ import { ServiceService } from './../../common-services/service.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EditTableComponent } from '../edit-table/edit-table.component';
 
 @Component({
   selector: 'app-main-grid',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule, EditTableComponent],
   providers : [ServiceService],
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss']
@@ -14,6 +15,10 @@ import { FormsModule } from '@angular/forms';
 export class MainGridComponent implements OnInit{
   columns: any[] = [];
   userRows: any[] = [];
+
+  userData :  any;
+
+  isedit = false;
 
   constructor(private  CommonServie : ServiceService){}
 
@@ -75,6 +80,15 @@ export class MainGridComponent implements OnInit{
   editData(editdata: any)
   {
     console.log(editdata)
+    this.userData =  editdata;
+    this.isedit =  true;
+  }
+
+  closeEdit(data : any)
+  {
+    console.log(data)
+
+    this.isedit = false
   }
 
 
