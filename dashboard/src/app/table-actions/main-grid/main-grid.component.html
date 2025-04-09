@@ -7,28 +7,25 @@
     <thead>
       <tr class="column-name">
         <th>
-          <input
-            type="checkbox"
-                        (change)="toggleAllUsers($event)"
-          />
+          <input type="checkbox" (change)="toggleAllUsers($event)" />
         </th>
         <th *ngFor="let item of columns">{{ item?.column_name }}</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of paginatedUsers">
+      <tr *ngFor="let user of paginatedUsers; let i = index">
         <td>
-          <input
-            type="checkbox"
-            [(ngModel)]="checked"
-
-          />
+          <input type="checkbox" [(ngModel)]="user.checked"/>
         </td>
 
         <td>
           <div class="user-avatar">
             <img src="https://i.pravatar.cc/40?img=2" alt="User" />
-            {{ user.name[0] }}
+            <span class="names">
+              {{user.name.first_name}}
+              {{user.name.handle}}
+            </span>
           </div>
         </td>
 
@@ -36,7 +33,8 @@
           <span
             class="status"
             [ngStyle]="{
-              'background-color': user.status === 'Customer' ? '#b9fac1' : '#dbdbdb'
+              'background-color':
+                user.status === 'Customer' ? '#b9fac1' : '#dbdbdb'
             }"
           >
             {{ user.status }}
@@ -69,12 +67,18 @@
             {{ team.value }}
           </span>
         </td>
+        <td>
+          <i class="fa-solid fa-pen" (click)="editData(user)" ></i>
+          <i class="fa-solid fa-trash-can"></i>
+        </td>
       </tr>
     </tbody>
   </table>
 
   <div class="pagination">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
     <div class="pagination-button">
       <button
         *ngFor="let page of totalPagesArray"
@@ -84,6 +88,8 @@
         {{ page }}
       </button>
     </div>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
   </div>
 </div>

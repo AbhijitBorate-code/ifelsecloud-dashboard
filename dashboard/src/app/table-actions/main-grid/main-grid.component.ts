@@ -1,3 +1,4 @@
+import { ServiceService } from './../../common-services/service.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,12 +7,15 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-main-grid',
   standalone: true,
   imports: [CommonModule,FormsModule],
+  providers : [ServiceService],
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss']
 })
 export class MainGridComponent implements OnInit{
   columns: any[] = [];
   userRows: any[] = [];
+
+  constructor(private  CommonServie : ServiceService){}
 
   checked : boolean = false
 
@@ -22,7 +26,13 @@ export class MainGridComponent implements OnInit{
 
 
   ngOnInit(): void {
-     this.getfetchapi()
+    this.CommonServie.getData().subscribe((res: any) => {
+      console.log('Data from service:', res);
+
+      this.columns = res.grid_columns || [];
+      this.userRows = res.grid_data || [];
+      this.userRows.forEach(user => user.checked = false);
+    });
   }
 
   get paginatedUsers() {
@@ -55,21 +65,16 @@ export class MainGridComponent implements OnInit{
   {
     const checked = (e.target as HTMLInputElement).checked;
     this.checked = checked;
+    this.paginatedUsers.forEach(user => (user.checked = checked));
+
   }
 
 
-  async getfetchapi() {
-    try {
-      const res = await fetch('https://01.fy25ey01.64mb.io/');
-      const data = await res.json();
 
-      console.log('API response:', data);
 
-      this.columns = data.grid_columns;
-      this.userRows = data.grid_data;
-    } catch (err) {
-      console.error('Error fetching data:', err);
-    }
+  editData(editdata: any)
+  {
+    console.log(editdata)
   }
 
 
