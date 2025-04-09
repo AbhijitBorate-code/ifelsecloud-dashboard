@@ -79,9 +79,3 @@ ngAfterViewInit() {
 ```html
 <i class="fas fa-chart-pie"></i> Chart Overview
 ```
-
----
-<<<<<<< HEAD
-
-=======
->>>>>>> efa796fc01bb2b8ad6cd7c3adc30da71d2cebb78
