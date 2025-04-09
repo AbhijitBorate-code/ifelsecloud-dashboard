@@ -1,14 +1,12 @@
 <div class="user-table" *ngIf="columns.length && userRows.length">
   <div class="team-member">
     <h1>Team Members</h1>
-    <span class="team-helight">{{ userRows.length + " " + "Users" }} </span>
+    <span class="team-helight">{{ userRows.length }} Users</span>
   </div>
   <table>
     <thead>
       <tr class="column-name">
-        <th *ngFor="let item of columns">
-          {{ item?.column_name }}
-        </th>
+        <th *ngFor="let item of columns">{{ item?.column_name }}</th>
       </tr>
     </thead>
     <tbody>
@@ -19,14 +17,20 @@
             {{ user.name[0] }}
           </div>
         </td>
-        <td
-        class="status"
-        [ngStyle]="{ 'background-color': user.status === 'Customer' ? '#b9fac1' : '#dbdbdb' }">
-        {{ user.status }}
-      </td>
 
+        <td>
+          <span
+          class="status"
+            [ngStyle]="{
+              'background-color': user.status === 'Customer' ? '#b9fac1' : '#dbdbdb'
+            }"
+          >
+            {{ user.status }}
+          </span>
+        </td>
 
-            <td class="roles">{{ user.role }}</td>
+        <td class="roles">{{ user.role }}</td>
+
         <td>
           <div class="progress-row">
             <div class="progress-container">
@@ -38,6 +42,7 @@
             <div class="progress-text">{{ user.license_used }}%</div>
           </div>
         </td>
+
         <td>
           <span
             *ngFor="let team of user.teams"
@@ -55,10 +60,8 @@
   </table>
 
   <div class="pagination">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">
-      Previous
-    </button>
-    <div class="paginiation-button">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <div class="pagination-button">
       <button
         *ngFor="let page of totalPagesArray"
         (click)="setPage(page)"
@@ -67,8 +70,6 @@
         {{ page }}
       </button>
     </div>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
-      Next
-    </button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
   </div>
 </div>
