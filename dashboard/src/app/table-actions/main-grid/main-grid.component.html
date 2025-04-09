@@ -6,11 +6,25 @@
   <table>
     <thead>
       <tr class="column-name">
+        <th>
+          <input
+            type="checkbox"
+                        (change)="toggleAllUsers($event)"
+          />
+        </th>
         <th *ngFor="let item of columns">{{ item?.column_name }}</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of paginatedUsers">
+        <td>
+          <input
+            type="checkbox"
+            [(ngModel)]="checked"
+
+          />
+        </td>
+
         <td>
           <div class="user-avatar">
             <img src="https://i.pravatar.cc/40?img=2" alt="User" />
@@ -20,7 +34,7 @@
 
         <td>
           <span
-          class="status"
+            class="status"
             [ngStyle]="{
               'background-color': user.status === 'Customer' ? '#b9fac1' : '#dbdbdb'
             }"

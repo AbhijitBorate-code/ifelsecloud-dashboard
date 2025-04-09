@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main-grid',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss']
 })
 export class MainGridComponent implements OnInit{
   columns: any[] = [];
   userRows: any[] = [];
+
+  checked : boolean = false
 
   users = []
 
@@ -47,6 +50,12 @@ export class MainGridComponent implements OnInit{
     if (this.currentPage < this.totalPages) this.currentPage++;
   }
 
+
+  toggleAllUsers(e: any)
+  {
+    const checked = (e.target as HTMLInputElement).checked;
+    this.checked = checked;
+  }
 
 
   async getfetchapi() {
