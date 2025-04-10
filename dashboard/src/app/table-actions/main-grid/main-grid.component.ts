@@ -91,6 +91,11 @@ export class MainGridComponent implements OnInit{
     this.isedit = false
   }
 
+  delete(user: any) {
+    this.CommonServie.deleteDataByCondition(user.id);
+  }
+
+
 
 
 }
