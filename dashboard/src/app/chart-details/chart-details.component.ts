@@ -5,6 +5,7 @@ import * as c3 from 'c3';
   selector: 'app-chart-details',
   templateUrl: './chart-details.component.html',
   styleUrls: ['./chart-details.component.scss'],
+  imports: []
 })
 export class ChartDetailsComponent implements OnInit {
   ngOnInit(): void {

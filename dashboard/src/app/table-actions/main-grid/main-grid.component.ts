@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EditTableComponent } from '../edit-table/edit-table.component';
+import { SanckbarComponent } from "../../shared-resources/sanckbar/sanckbar.component";
 
 @Component({
   selector: 'app-main-grid',
   standalone: true,
-  imports: [CommonModule,FormsModule, EditTableComponent],
+  imports: [CommonModule, FormsModule, EditTableComponent, SanckbarComponent],
   providers : [ServiceService],
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss']
@@ -19,6 +20,8 @@ export class MainGridComponent implements OnInit{
   userData :  any;
 
   isedit = false;
+
+  deletUserName : any;
 
   constructor(private  CommonServie : ServiceService){}
 
@@ -92,6 +95,8 @@ export class MainGridComponent implements OnInit{
   }
 
   delete(user: any) {
+    this.deletUserName = user.name.first_name
+    this.deletUserName = this.deletUserName + ' ' + ' Deleted successful !!'
     this.CommonServie.deleteDataByCondition(user.id);
   }
 

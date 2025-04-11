@@ -1,3 +1,4 @@
+
 <div class="user-table" *ngIf="columns.length && userRows.length">
   <div class="team-member">
     <h1>Team Members</h1>
@@ -94,3 +95,4 @@
   </div>
 </div>
 <app-edit-table *ngIf="isedit" (closebtn)="closeEdit($event)" [userData]="userData" ></app-edit-table>
+<app-sanckbar [message]="deletUserName" [type]="'success'"></app-sanckbar>
