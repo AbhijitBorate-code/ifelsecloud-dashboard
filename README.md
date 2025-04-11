@@ -79,3 +79,10 @@ ngAfterViewInit() {
 ```html
 <i class="fas fa-chart-pie"></i> Chart Overview
 ```
+
+
+### output photos URL 
+
+```
+dashboard/public/libs-outputs
+```
