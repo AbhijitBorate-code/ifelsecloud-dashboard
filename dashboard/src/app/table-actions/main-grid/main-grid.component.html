@@ -1,4 +1,6 @@
 
+
+<app-spinner  *ngIf="!columns.length && !userRows.length"></app-spinner>
 <div class="user-table" *ngIf="columns.length && userRows.length">
   <div class="team-member">
     <h1>Team Members</h1>

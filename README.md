@@ -1,8 +1,9 @@
 
+---
 
 # 📊 IfElseCloud Dashboard Setup Guide
 
-This guide walks you through setting up the required libraries for charts and icons in your Angular-based dashboard.
+A quick and complete guide to set up chart libraries and icon support for your Angular dashboard.
 
 ---
 
@@ -10,20 +11,20 @@ This guide walks you through setting up the required libraries for charts and ic
 
 ### 1. Install Chart Libraries: `c3` and `d3`
 
-These libraries are used for rendering the interactive charts in the dashboard.
+These libraries are essential for rendering interactive charts.
 
 ```bash
 npm install c3
 npm install d3
 ```
 
-> ✅ `c3` depends on `d3`, so both must be installed.
+> ✅ Note: `c3` requires `d3`, so both must be installed.
 
 ---
 
 ### 2. Install Font Awesome for Icons
 
-Font Awesome provides a wide range of scalable icons used in the dashboard UI.
+Font Awesome provides scalable vector icons used throughout the UI.
 
 ```bash
 npm install @fortawesome/fontawesome-free
@@ -31,9 +32,9 @@ npm install @fortawesome/fontawesome-free
 
 ---
 
-### 3. Add Global Styles in `angular.json`
+### 3. Configure Global Styles in `angular.json`
 
-To enable Font Awesome styles globally, update the `styles` array in your `angular.json` file:
+Add Font Awesome styles to the `styles` array in `angular.json`:
 
 ```json
 "styles": [
@@ -42,21 +43,25 @@ To enable Font Awesome styles globally, update the `styles` array in your `angul
 ]
 ```
 
-> ⚠️ Make sure the above entry is placed **before** your own `styles.scss` file to avoid any override issues.
+> ⚠️ Place the Font Awesome entry **before** your `styles.scss` to prevent style override issues.
 
 ---
 
-## ✅ Done!
+## ✅ Setup Complete
 
 You can now use:
-- `c3` charts in your Angular components.
-- Font Awesome icons like `<i class="fas fa-chart-line"></i>` directly in your templates.
+- `c3` charts in Angular components.
+- Font Awesome icons directly in templates, e.g.:
+
+```html
+<i class="fas fa-chart-line"></i>
+```
 
 ---
 
 ## 📦 Example Usage
 
-### Component Chart Example (`dashboard.component.ts`):
+### Chart Example (`dashboard.component.ts`)
 
 ```ts
 import * as c3 from 'c3';
@@ -74,15 +79,32 @@ ngAfterViewInit() {
 }
 ```
 
-### Font Awesome Example (`dashboard.component.html`):
+---
+
+### Icon Example (`dashboard.component.html`)
 
 ```html
 <i class="fas fa-chart-pie"></i> Chart Overview
 ```
 
+---
 
-### output photos URL 
+## 📸 Output Photos URL
 
 ```
 dashboard/public/libs-outputs
 ```
+
+---
+
+## 🧪 Node & Serve
+
+- Use **Node.js v19**
+- Start the project with:
+
+```bash
+ng serve
+```
+
+---
+

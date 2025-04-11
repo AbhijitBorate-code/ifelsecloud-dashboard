@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EditTableComponent } from '../edit-table/edit-table.component';
 import { SanckbarComponent } from "../../shared-resources/sanckbar/sanckbar.component";
+import { SpinnerComponent } from "../../shared-resources/spinner/spinner.component";
 
 @Component({
   selector: 'app-main-grid',
   standalone: true,
-  imports: [CommonModule, FormsModule, EditTableComponent, SanckbarComponent],
+  imports: [CommonModule, FormsModule, EditTableComponent, SanckbarComponent, SpinnerComponent],
   providers : [ServiceService],
   templateUrl: './main-grid.component.html',
   styleUrls: ['./main-grid.component.scss']
